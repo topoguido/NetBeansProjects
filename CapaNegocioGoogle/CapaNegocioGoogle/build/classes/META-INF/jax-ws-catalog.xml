@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://104.196.215.173:8080/WebServiceDelfos/WSObtenerTipoCambio?wsdl" uri="wsdl/104.196.215.173_8080/WebServiceDelfos/WSObtenerTipoCambio.wsdl"/>
+    <system systemId="http://104.196.215.173:8080/WebServiceDelfos/WSObtenerTipoCambio?xsd=1" uri="wsdl/104.196.215.173_8080/WebServiceDelfos/WSObtenerTipoCambio.xsd_1.xsd"/>
+</catalog>

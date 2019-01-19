@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://ObtenerTipoCambio/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ObtenerTipoCambio/">
+
+<xs:element name="IOException" type="tns:IOException"/>
+
+<xs:element name="MessagingException" type="tns:MessagingException"/>
+
+<xs:element name="WebServiceTipoDeCambio" type="tns:WebServiceTipoDeCambio"/>
+
+<xs:element name="WebServiceTipoDeCambioResponse" type="tns:WebServiceTipoDeCambioResponse"/>
+
+<xs:complexType name="WebServiceTipoDeCambio">
+<xs:sequence>
+<xs:element name="autenticacion" type="tns:autenticacion" minOccurs="0"/>
+<xs:element name="tipoCambioRequest" type="tns:tipoCambioRequest" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="autenticacion">
+<xs:sequence>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="user" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoCambioRequest">
+<xs:sequence>
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="monedaDesde" type="xs:string" minOccurs="0"/>
+<xs:element name="monedaHasta" type="xs:string" minOccurs="0"/>
+<xs:element name="tipoCotizacion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WebServiceTipoDeCambioResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tipoCambioResponse" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoCambioResponse">
+<xs:sequence>
+<xs:element name="codMoneda" type="xs:string" minOccurs="0"/>
+<xs:element name="compra" type="xs:string" minOccurs="0"/>
+<xs:element name="errores" type="tns:errores" minOccurs="0"/>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="tipoCotizacion" type="xs:string" minOccurs="0"/>
+<xs:element name="venta" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="errores">
+<xs:sequence>
+<xs:element name="error" type="tns:error" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="error">
+<xs:sequence>
+<xs:element name="codigoError" type="xs:int"/>
+<xs:element name="descripcionError" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="IOException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MessagingException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+<xs:element name="nextException" type="tns:exception" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="exception">
+<xs:complexContent>
+<xs:extension base="tns:throwable">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="throwable">
+<xs:sequence>
+<xs:element name="stackTrace" type="tns:stackTraceElement" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stackTraceElement" final="extension restriction">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>
